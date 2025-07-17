@@ -49,9 +49,9 @@ $(document).ready(function () {
 
   // TODO 2: add a new property to all data shapes
 
-        for(position in dataShapes){
-          currentShape = dataShapes[position]
-          dataShapes[position].goodBehavior
+        for( var position = 0; position < dataShapes.length; position++){
+          let currentShape = dataShapes[position]
+          //dataShapes[position].goodBehavior
           if(currentShape.color === "red"){
             currentShape.goodBehavior = "bounce"
           }
@@ -68,7 +68,7 @@ $(document).ready(function () {
   // TODO 3-a: add a function that handles the static display type
         function handleStatic (data) {
           setBackgroundWithObject(data);
-          animationDetails.displayType =1;
+          animationDetails.displayType = 1;
         }
 
   // TODO 4-a: add a function that handles the good display type
@@ -78,19 +78,28 @@ $(document).ready(function () {
         }
 
   // TODO 5-a: add a function that handles the bad display type
-       // function handleBad (data, repeat){
-       //   repeat = repeat + 1
-       //   setBackgroundWithMixed(data, repeat)
-       //  animationDetails.displayType = 3
-       //}
-
+     //   function handleBad (data, repeat){
+     //     repeat = repeat + 1
+     //     setBackgroundWithMixed(data, repeat)
+     //    animationDetails.displayType = 3
+     //  }
         function handleBad (data, repeat){
           repeat = repeat + 1
-          setBackgroundWithMixed(data, repeat)
-          resetDisplay()
-          currentIndex = (Math.random,0,dataShapes.length - 1)
+          setBackgroundWithMixed (data, repeat)
+          //console.log(currentShape, repeat);
+          //resetDisplay()
+          //currentIndex = (Math.random,0,dataShapes.length - 1)
           animationDetails.displayType = 3
         }
+
+
+       // function handleBad(data, repeat){
+       //   repeat = repeat + 1
+       //   setBackgroundWithMixed(data, repeat)
+          //resetDisplay()
+          //currentIndex = (Math.random,0,dataShapes.length - 1)
+       //   animationDetails.displayType = 3
+        //}
 
   /////////////////////////////////////////////////
   // BUTTON HANDLERS BELOW HERE (3-b, 4-b, 5-b) ///
@@ -98,20 +107,20 @@ $(document).ready(function () {
 
   function staticDisplay() {
     // TODO 3-b: call your handleStatic function
-    handleStatic(currentShape[currentIndex])
+    handleStatic(dataShapes[currentIndex])
   }
 
   function goodDisplay() {
     // TODO 4-b: call your handleGood function
-    let currentShape = dataShapes[currentShape];
-    handleGood(currentShape.color, currentShape.shape, currentShape.repeat)
+    let currentShape = dataShapes[currentIndex];
+    handleGood(currentShape.color, currentShape.shape, currentShape.repeat);
   }
 
   function badDisplay() {
     // TODO 5-b: call your handleBad function
-    let currentShape = dataShapes[currentIndex]
-    let repeat = currentShape.repeat
-    handleBad(currentShape, repeat)
+    let currentShape = dataShapes[currentIndex];
+    let repeat = currentShape.repeat;
+    handleBad(currentShape, repeat);
   }
 
   /////////////////////////////////////////////////
