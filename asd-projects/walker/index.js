@@ -17,12 +17,19 @@ function runProgram(){
     DOWN: 40
   }
   
+  var walker {
+    xlocation: 0,
+    ylocation: 0,
+    xspeed: 0,
+    yspeed: 0
+  }
+
   // Game Item Objects
 
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on('keyDown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
+  $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
